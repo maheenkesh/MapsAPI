@@ -18,13 +18,25 @@ public class MapController {
 	@GetMapping(value = {"/", "/home"})
 	public String getDefaultMap(Model model) {
 		model.addAttribute("location", new Location());
-		return "index";
+		return "index.html";
 	}
 	
 	@PostMapping(value = {"/", "/home"})
 	public String getMapForLocation(Location location, Model model) {
 		mapService.addCoordinates(location);
 		model.addAttribute("location", location);
-		return "index";
+		return "index.html";
+	}
+	@PostMapping(value = {"/", "/reverse"})
+	public String getMapForCoords(Location location, Model model) {
+		mapService.convertCoordinates(location);
+		model.addAttribute("location", location);
+		return "index.html";
+	}
+	@PostMapping(value = {"/", "/random"})
+	public String getMapRandom(Location location, Model model) {
+		mapService.randomCoordinates(location);
+		model.addAttribute("location", location);
+		return "index.html";
 	}
 }

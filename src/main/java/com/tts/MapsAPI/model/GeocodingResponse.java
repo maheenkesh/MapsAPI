@@ -3,8 +3,8 @@ package com.tts.MapsAPI.model;
 import java.util.List;
 
 public class GeocodingResponse {
-	private List<Geocoding> results;
-	
+    private List<Geocoding> results;
+    
 	public GeocodingResponse() {}
 
 	public GeocodingResponse(List<Geocoding> results) {
